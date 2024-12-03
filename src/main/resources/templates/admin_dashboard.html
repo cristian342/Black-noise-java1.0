@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="/css/admin_dashboard.css">
+</head>
+<header>
+    <div class="logo">Panel de Administrador</div>
+    <div class="user-menu">
+        <div class="notification">
+            <i>🔔</i>
+        </div>
+        <div class="profile">
+            <img src="https://via.placeholder.com/40" alt="Usuario">
+            <div class="profile-menu">
+                <a href="#">Mi Perfil</a>
+                <a href="#">Configuraciones</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <h1>Bienvenido Administrador, <span th:text="${usuario.nombre}"></span>!</h1>
+    
+    <!-- Formulario de Búsqueda -->
+    <div class="search-form">
+        <form th:action="@{/usuario/{id}/buscar(id=${usuario.id})}" method="get">
+            <input type="text" name="textoBusqueda" placeholder="Buscar por nombre o correo">
+            <select name="rol">
+                <option value="">Todos los Roles</option>
+                <option value="CLIENTE">Cliente</option>
+                <option value="EMPLEADO">Empleado</option>
+                <option value="ADMINISTRADOR">Administrador</option>
+            </select>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+    
+    <form th:action="@{/usuario/{id}/exportar(id=${usuario.id})}" method="get">
+        <input type="hidden" name="textoBusqueda" th:value="${param.textoBusqueda}">
+        <input type="hidden" name="rol" th:value="${param.rol}">
+        <button type="submit">Exportar a PDF</button>
+    </form>
+    
+    <h2>Listado de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${usuarios}">
+                <td th:text="${user.nombre}"></td>
+                <td th:text="${user.correo}"></td>
+                <td th:text="${user.rol}"></td>
+                <td class="actions">
+                    <!-- Enlace de Edición -->
+                    <a th:href="@{/usuario/{idAdmin}/editar/{idEditado}(idAdmin=${usuario.id}, idEditado=${user.id})}" class="btn-edit">
+                        Editar
+                    </a>
+                    
+                    <!-- Formulario de Eliminación -->
+                    <form th:action="@{/usuario/{idAdmin}/eliminar/{idEditado}(idAdmin=${usuario.id}, idEditado=${user.id})}" 
+                          method="post" 
+                          style="display:inline;"
+                          onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Mensaje cuando no hay usuarios -->
+    <p th:if="${#lists.isEmpty(usuarios)}">No se encontraron usuarios.</p>
+</body>
+</html>

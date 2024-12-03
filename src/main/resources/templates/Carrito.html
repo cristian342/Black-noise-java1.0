@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../2. CSS_S/Carrito.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="header">
+            <p class="logo">Tus ediciones</p>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+        </div>
+        <div class="container">
+            <div id="root-container">
+                <!-- Botón para crear nuevo diseño -->
+                <div class="new-design">
+                    <button class="new-design-btn" onclick="redirectToCart()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <p>Crear nuevo diseño</p>
+                </div>
+                <div id="root"></div>
+            </div>
+            <div class="sidebar">
+                <div class="head"><p>Tu carrito</p></div>
+                <div id="cartItem">Aun no hay nada en tu carrito</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0.00</h2>
+                </div>
+            </div>
+        </div>
+        <script src="../3. JS_S/Carrito.js"></script>
+        <script>
+            // Nueva función para redirigir
+            function redirectToCart() {
+                window.location.href = "ruta-a-tu-carrito.html";
+            }
+        </script>
+    </body>
+</html>

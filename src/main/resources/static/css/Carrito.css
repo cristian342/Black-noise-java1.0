@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)),
+        url(../IMG/Fondos/Fondo\ 6.jpg);
+        background-size: cover;
+    background-position: center;
+    display: flex;
+
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.fa-solid {
+    color: #fff;
+}
+
+.cart p {
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #727272;
+    border-radius: 50%;
+    color: #fff;
+}
+
+/* Otros estilos permanecen igual */
+
+.container {
+    display: flex;
+    width: 70%;
+    margin-top: 120px; /* Para evitar la superposición con el header fijo */
+    justify-content: space-between; /* Añadido para el espacio entre root y sidebar */
+}
+
+#root-container {
+    width: 60%;
+}
+
+.new-design {
+    text-align: center;
+    width: 100%; /* Asegura que el contenedor del botón tenga el mismo ancho que el contenedor de la cuadrícula */
+    margin-bottom: 20px;
+}
+
+.new-design-btn {
+    width: 100%; /* Hace que el botón tenga el mismo ancho que el contenedor del botón */
+    padding: 10px;
+    font-size: 20px;
+    background-color: #4d4d4d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.new-design-btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+#root {
+    width: 100%; /* Asegura que el contenedor de la cuadrícula ocupe todo el ancho del contenedor padre */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+
+
+
+.sidebar {
+    width: 40%;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    margin-left: 20px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.head {
+    background-color: #000;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #fff;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #2c2c2c;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.box:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.img-box {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+}
+
+.box:hover .images {
+    transform: scale(1.1);
+}
+
+.bottom {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 140px;
+}
+
+.bottom p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.bottom h2 {
+    font-size: 20px;
+    color: #bd9696;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #4d4d4d;
+    padding: 7px 25px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+button.edit-btn {
+    background-color: #4d4d4d;
+}
+
+button.fabricate-btn {
+    background-color: #007bff;
+}
+
+button.fabricate-btn:hover {
+    background-color: #0056b3;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.row-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowimg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.fa-trash {
+    color: #aaa;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.fa-trash:hover {
+    cursor: pointer;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Icono de basurero */
+.trash-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.trash-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.trash-icon:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #root {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .box {
+        width: 100%;
+    }
+}
+
